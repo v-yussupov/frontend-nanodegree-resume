@@ -1,25 +1,89 @@
 var bio = {
 	"name": "Vladimir Yussupov",
 	"role": "web-developer",
-	"contactInfo": ["87778270509", "v.yussupov@gmail.com", "v-yussupov", "Almaty"],
-	"pictureUrl": "images/picture.jpg",
 	"welcomeMsg": "Hello!",
+	"contacts": {
+		"cellphone":"87778270509", 
+		"email": "v.yussupov@gmail.com", 
+		"github": "v-yussupov", 
+		"city": "Almaty"		
+	},
+	"pictureUrl": "images/picture.jpg",
 	"skills": ["asdasdasd, asdasdasdasdd", "asdas", "asdasdasd"]
 };
 
-var work = {};
-work.position = "business analyst";
-work.employer = "Bass Technology";
-work.years = "2011 - Future";
-work.city = "Almaty";
+var education = {
+	"schools": [
+		{
+			"name": "Almaty University of Power, Energy and Telecommunications",
+			"location": "Republic of Kazakhstan, Almaty",
+			"degree": "BA",
+			"major":["Computer Science", "Software Support"],
+			"dates": "2004 - 2008",			
+			"url": "http://www.aipet.kz/index_eng.htm"
+		},
+		{
+			"name": "Kaplan Aspect",
+			"location": "New Zealand, Auckland",
+			"degree": "Non-degree programme",
+			"major":["English"],
+			"dates": "2008 - 2009",			
+			"url": "http://www.kaplaninternational.com/schools/new-zealand/learn-english.aspx"
+		}
+	],
+	"onlineCourses": [
+		{
+			"title": "Front-end web-developer Nanodegree",
+			"school": "Udacity",
+			"dates": "2014 - Future",			
+			"url": "https://www.udacity.com/course/nd001"
+		}			
+	]	
+};
 
-var education = {};
-education["school"] = "AUPET";
-education["years"] = "2004 - 2008";
-education["city"] = "Almaty";
+var work = {
+	"jobs": [
+		{
+			"employer": "",
+			"title": "",
+			"location": "",
+			"dates": "",
+			"description": ""
+		},
+		{
+			"employer": "",
+			"title": "",
+			"location": "",
+			"dates": "",
+			"description": ""
+		},
+		{
+			"employer": "",
+			"title": "",
+			"location": "",
+			"dates": "",
+			"description": ""
+		}		
+	]	
+};
+
+var project = {
+	"projects": [
+		{
+			"title": "",
+			"dates": "",
+			"description": "",
+			"images": []
+		}		
+	]	
+};
 
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
+
+
+
+
+/*var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var mobile = HTMLmobile.replace("%data%", bio.contactInfo[0]);
 var email = HTMLemail.replace("%data%", bio.contactInfo[1]);
@@ -55,6 +119,6 @@ $("#workExperience").append(workCity);
 $("#workExperience").append(workDates);   
 
 $("#education").append(HTMLschoolStart);
-$("#education").append(school);
+$("#education").append(school);*/
 
 
