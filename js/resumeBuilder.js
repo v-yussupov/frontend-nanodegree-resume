@@ -9,7 +9,7 @@ var bio = {
 		"city": "Almaty"		
 	},
 	"pictureUrl": "images/picture.jpg",
-	"skills": ["asdasdasd, asdasdasdasdd", "asdas", "asdasdasd"]
+	"skills": ["awesomeness", "intelligence", "asdasdasd", "blah-blah"]
 };
 
 var education = {
@@ -44,25 +44,25 @@ var education = {
 var work = {
 	"jobs": [
 		{
-			"employer": "",
-			"title": "",
-			"location": "",
-			"dates": "",
-			"description": ""
+			"employer": "Job1",
+			"title": "Title1",
+			"location": "Kazakhstan, Almaty",
+			"dates": "dates1 - dates1",
+			"description": "Lorem ipsum..."
 		},
 		{
-			"employer": "",
-			"title": "",
-			"location": "",
-			"dates": "",
-			"description": ""
+			"employer": "Job2",
+			"title": "Title2",
+			"location": "Kazakhstan, Almaty",
+			"dates": "dates2 - dates2",
+			"description": "Lorem Ipsum......."
 		},
 		{
-			"employer": "",
-			"title": "",
-			"location": "",
-			"dates": "",
-			"description": ""
+			"employer": "Job3",
+			"title": "Title3",
+			"location": "Kazakhstan, Almaty",
+			"dates": "dates3 - dates3",
+			"description": "Lorem ipsum....."
 		}		
 	]	
 };
@@ -78,29 +78,14 @@ var project = {
 	]	
 };
 
-
-
-
-
-
-/*var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var mobile = HTMLmobile.replace("%data%", bio.contactInfo[0]);
-var email = HTMLemail.replace("%data%", bio.contactInfo[1]);
-var github = HTMLgithub.replace("%data%", bio.contactInfo[2]);
-var myLocation = HTMLlocation.replace("%data%", bio.contactInfo[3]);
+var mobile = HTMLmobile.replace("%data%", bio.contacts.cellphone);
+var email = HTMLemail.replace("%data%", bio.contacts.email);
+var github = HTMLgithub.replace("%data%", bio.contacts.github);
+var myLocation = HTMLlocation.replace("%data%", bio.contacts.city);
 var picture = HTMLbioPic.replace("%data%",bio.pictureUrl);
 var welcomeText = HTMLWelcomeMsg.replace("%data%",bio.welcomeMsg);
-var skill1 = HTMLskills.replace("%data%",bio.skills[0]);
-var skill2 = HTMLskills.replace("%data%",bio.skills[1]);
-var skill3 = HTMLskills.replace("%data%",bio.skills[2]);
-var employer = HTMLworkEmployer.replace("%data%",work["employer"]);
-var workDates = HTMLworkDates.replace("%data%",work.years);
-var workCity = HTMLworkLocation.replace("%data%",work.city);
-
-var school = HTMLschoolName.replace("%data%",education.school);
-
-
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#topContacts").append(mobile);
@@ -109,6 +94,51 @@ $("#topContacts").append(github);
 $("#topContacts").append(myLocation);
 $("#header").append(picture);
 $("#header").append(welcomeText);
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+	var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
+	$("#skills").append(formattedSkill);
+}
+
+for (var jobNum in work.jobs) {
+	var employer = HTMLworkEmployer.replace("%data%",work.jobs[jobNum].employer);
+	var title = HTMLworkTitle.replace("%data%",work.jobs[jobNum].title);
+	var formattedDates = HTMLworkDates.replace("%data%",work.jobs[jobNum].dates);
+	var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[jobNum].location);
+	var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[jobNum].description);
+	var formattedEmployerTitle = employer + title;
+	$("#workExperience").append(HTMLworkStart);
+	$(".work-entry:last").append(formattedEmployerTitle);
+	$(".work-entry:last").append(formattedDates);
+	$(".work-entry:last").append(formattedLocation);
+	$(".work-entry:last").append(formattedDescription);
+}
+
+
+
+$(document).click(function(loc){
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x, y);
+})
+
+/*
+
+var employer = HTMLworkEmployer.replace("%data%",work["employer"]);
+var workDates = HTMLworkDates.replace("%data%",work.years);
+var workCity = HTMLworkLocation.replace("%data%",work.city);
+
+var school = HTMLschoolName.replace("%data%",education.school);
+
+
+
 $("#header").append(HTMLskillsStart);
 $("#header").append(skill1);
 $("#header").append(skill2);
