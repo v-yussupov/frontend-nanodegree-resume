@@ -70,10 +70,10 @@ var work = {
 var project = {
 	"projects": [
 		{
-			"title": "",
-			"dates": "",
-			"description": "",
-			"images": []
+			"title": "Proj1",
+			"dates": "dates1-dates1",
+			"description": "Project1 description",
+			"images": []			
 		}		
 	]	
 };
@@ -94,6 +94,7 @@ $("#topContacts").append(github);
 $("#topContacts").append(myLocation);
 $("#header").append(picture);
 $("#header").append(welcomeText);
+$("#main").append(internationalizeButton);
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -121,13 +122,43 @@ for (var jobNum in work.jobs) {
 	$(".work-entry:last").append(formattedDescription);
 }
 
+function inName(str){
+	var arr = [];
+	arr = str.trim().split(" ");
+	arr[0] = arr[0].slice(0,1).toUpperCase() + arr[0].slice(1).toLowerCase();
+    arr[1] = arr[1].toUpperCase();
+	str = arr.join(" ");
+	return str;
+}
 
+projects.display = function(){
+	for (projNum in project.projects){
+		$("#projects").append(HTMLprojectStart);
+		var title = HTMLprojectTitle.replace("%data%",project.projects[projNum].title);
+		$(".project-entry:last").append(title);
+		var formattedDates = HTMLprojectDates.replace("%data%",project.projects[projNum].dates);
+		$(".project-entry:last").append(formattedDates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%",project.projects[projNum].description);
+		$(".project-entry:last").append(formattedDescription);
+		if (project.projects[projNum].images.length > 0){
+			for (imgNum in project.projects[projNum].images){
+				var formattedImage = HTMLprojectImage.replace("%data%",project.projects[projNum].images[imgNum]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+		
+		
+	}
 
-$(document).click(function(loc){
+} 
+
+projects.display();
+
+/*$(document).click(function(loc){
 	var x = loc.pageX;
 	var y = loc.pageY;
 	logClicks(x, y);
-})
+})*/
 
 /*
 
