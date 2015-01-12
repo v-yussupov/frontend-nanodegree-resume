@@ -2,16 +2,17 @@ var bio = {
 	"name":"Vladimir Yussupov",
 	"role":"web-developer",
 	"contacts":{
-		"cellphone":"87778270509", 
+		"mobile":"+77778270509", 
 		"email": "v.yussupov@gmail.com", 
 		"github": "v-yussupov", 
-		"location": "Almaty"		
+		"location": "Almaty, Kazakhstan"		
 	},
 	"welcomeMsg":"Hello!",
-	"skills":["awesomeness", "intelligence", "asdasdasd", "blah-blah"],
+	"skills":["HTML, CSS", "JavaScript, C", "MySQL, MS SQL Server", "Technical writing", "Graphic design / layout, ADOBE products knowledge (PS, AI, InDesign, Framemaker)", "UNIX-like OSes just for fun"],
 	"pictureUrl":"images/picture.jpg"
 };
 bio.display = function(){
+	$("#header").prepend(internationalizeButton);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedRole);
@@ -20,15 +21,7 @@ bio.display = function(){
 	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMsg);
 	$("#header").append(formattedPicture);
 	$("#header").append(formattedWelcomeMsg);
-	// appending contacts info with capitalized contact name
-	for (var contactNum in bio.contacts){
-		if (bio.contacts.hasOwnProperty(contactNum)) {
-    		var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contactNum]);
-    		formattedContact = formattedContact.replace("%contact%", contactNum.charAt(0).toUpperCase() + contactNum.slice(1) + ": ");
-    		$("#topContacts").append(formattedContact);
-		}
-	}
-	// appending skills array
+	
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 		for (var skillNum in bio.skills){
@@ -36,12 +29,21 @@ bio.display = function(){
 			$("#skills").append(formattedSkill);
 		}
 	}
+
+	for (var contactNum in bio.contacts){
+		if (bio.contacts.hasOwnProperty(contactNum)) {
+    		var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contactNum]);
+    		formattedContact = formattedContact.replace("%contact%", contactNum.charAt(0).toUpperCase() + contactNum.slice(1) + ": ");
+    		$("#topContacts").append(formattedContact);
+    		$("#footerContacts").append(formattedContact);
+		}
+	}
 }
 var education = {
 	"schools": [
 		{
 			"name": "Almaty University of Power, Energy and Telecommunications",
-			"location": "Republic of Kazakhstan, Almaty",
+			"location": "Kazakhstan, Almaty",
 			"degree": "Bachelor",
 			"majors":["Computer Science", "Software Support"],
 			"dates": "2004 - 2008",			
@@ -53,14 +55,14 @@ var education = {
 			"degree": "Non-degree programme",
 			"majors":["English"],
 			"dates": "2008 - 2009",			
-			"url": "http://www.kaplaninternational.com/schools/new-zealand/learn-english.aspx"
+			"url": "http://www.kaplaninternational.com/schools/new-zealand/english-courses-auckland.aspx"
 		}
 	],
 	"onlineCourses": [
 		{
 			"title": "Front-end web-developer Nanodegree",
 			"school": "Udacity",
-			"date": "2014 - Future",			
+			"date": "2014 - ...",			
 			"url": "https://www.udacity.com/course/nd001"
 		}			
 	]
@@ -71,6 +73,7 @@ education.display = function(){
 		for (var schoolNum in education.schools){
 			$("#education").append(HTMLschoolStart);
 			var formattedName = HTMLschoolName.replace("%data%",education.schools[schoolNum].name);
+			formattedName = formattedName.replace("#",education.schools[schoolNum].url);
 			$(".education-entry:last").append(formattedName);
 			var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[schoolNum].degree);
 			$(".education-entry:last a").append(formattedDegree);
@@ -80,8 +83,6 @@ education.display = function(){
 			$(".education-entry:last").append(formattedDates);
 			var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[schoolNum].majors);
 			$(".education-entry:last").append(formattedMajor);
-			var formattedURL = HTMLschoolURL.replace("%data%",education.schools[schoolNum].url);
-			$(".education-entry:last").append(formattedURL);
 		}
 	}
 	if (education.onlineCourses.length > 0) {
@@ -95,6 +96,7 @@ education.display = function(){
 			var formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[courseNum].date);
 			$(".education-entry:last").append(formattedDates);
 			var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[courseNum].url);
+			formattedURL = formattedURL.replace("#",education.onlineCourses[courseNum].url);
 			$(".education-entry:last").append(formattedURL);
 		}
 	}	
@@ -103,25 +105,25 @@ education.display = function(){
 var work = {
 	"jobs": [
 		{
-			"employer": "Job1",
-			"title": "Title1",
+			"employer": "Bass Technology LLP",
+			"title": "System analyst / Software developer",
 			"location": "Kazakhstan, Almaty",
-			"dates": "dates1 - dates1",
-			"description": "Lorem ipsum..."
+			"dates": "2014 - ...",
+			"description": "Queue management system functional development, third-party systems integration specialist, C/Delphi developer"
 		},
 		{
-			"employer": "Job2",
-			"title": "Title2",
+			"employer": "Bass Technology LLP",
+			"title": "Software tester",
 			"location": "Kazakhstan, Almaty",
-			"dates": "dates2 - dates2",
-			"description": "Lorem Ipsum......."
+			"dates": "2012 - 2014",
+			"description": "Queue management system testing, technical documentation, clients design layout"
 		},
 		{
-			"employer": "Job3",
-			"title": "Title3",
+			"employer": "Kazakhstan Federation of UNESCO Clubs (KAZFUCA)",
+			"title": "Graphic design / Flash programming",
 			"location": "Kazakhstan, Almaty",
-			"dates": "dates3 - dates3",
-			"description": "Lorem ipsum....."
+			"dates": "2011 - 2012",
+			"description": "Graphic materials design and macking up, Adobe Flash projects"
 		}		
 	]
 };
@@ -144,10 +146,10 @@ work.display = function(){
 var projects = {
 	"projects": [
 		{
-			"title": "Proj1",
-			"dates": "dates1-dates1",
-			"description": "Project1 description",
-			"images": []			
+			"title": "Queue management system userguides pack",
+			"dates": "2012 - ...",
+			"description": "Server-side and client-side components userguides, 14 userguides in total. Examples below:",
+			"images": ["images/doc.png", "images/doc1.png", "images/doc2.png", "images/doc3.png"]
 		}		
 	]
 };
@@ -169,11 +171,11 @@ projects.display = function(){
 	}
 }
 
-$("#main").prepend(internationalizeButton);
 bio.display();
 projects.display();
 education.display();
 work.display();
+$("#mapDiv").append(googleMap);
 
 
 
