@@ -1,18 +1,54 @@
+var menuList = {
+	"menu":[
+		{
+			"name":"bio",
+			"refID":"header"
+		},
+		{
+			"name":"work",
+			"refID":"workExperience"
+		},
+		{
+			"name":"projects",
+			"refID":"projects"
+		},
+		{
+			"name":"education",
+			"refID":"education"
+		},
+		{
+			"name":"places",
+			"refID":"mapDiv"
+		}
+	]
+};
+menuList.display = function(){
+	if (menuList.menu.length > 0) {
+		$(HTMLmenuStart).insertBefore("#header");
+		for (var menuNum in menuList.menu){
+			var formattedMenu = HTMLmenu.replace("%data%", menuList.menu[menuNum].name.toUpperCase());
+			formattedMenu = formattedMenu.replace("#", "#" + menuList.menu[menuNum].refID);
+			$(".menu").append(formattedMenu);			
+		}
+	}
+}
+
+
 var bio = {
 	"name":"Vladimir Yussupov",
-	"role":"web-developer",
+	"role":"Front-end web-developer",
 	"contacts":{
 		"mobile":"+77778270509", 
 		"email": "v.yussupov@gmail.com", 
 		"github": "v-yussupov", 
 		"location": "Almaty, Kazakhstan"		
 	},
-	"welcomeMsg":"Hello!",
+	"welcomeMsg":"May the force be with you!",
 	"skills":["HTML, CSS", "JavaScript, C", "MySQL, MS SQL Server", "Technical writing", "Graphic design / layout, ADOBE products knowledge (PS, AI, InDesign, Framemaker)", "UNIX-like OSes just for fun"],
 	"pictureUrl":"images/picture.jpg"
 };
 bio.display = function(){
-	$("#header").prepend(internationalizeButton);
+	//$("#header").prepend(internationalizeButton);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedRole);
@@ -113,18 +149,39 @@ var work = {
 		},
 		{
 			"employer": "Bass Technology LLP",
-			"title": "Software tester",
+			"title": "Software testing and maintenance specialist",
 			"location": "Kazakhstan, Almaty",
 			"dates": "2012 - 2014",
-			"description": "Queue management system testing, technical documentation, clients design layout"
+			"description": "Queue management system testing, technical documentation, clients design layout, personnel training"
+		},
+		{
+			"employer": "BP Solutions LLP",
+			"title": "Software testing and maintenance specialist",
+			"location": "Kazakhstan, Almaty",
+			"dates": "2011 - 2012",
+			"description": "ATM monitoring software testing, Queue management system software product testing"
 		},
 		{
 			"employer": "Kazakhstan Federation of UNESCO Clubs (KAZFUCA)",
 			"title": "Graphic design / Flash programming",
 			"location": "Kazakhstan, Almaty",
-			"dates": "2011 - 2012",
-			"description": "Graphic materials design and macking up, Adobe Flash projects"
-		}		
+			"dates": "2010 - 2011",
+			"description": "Graphic design, layout, Adobe Flash applications development, helpdesk, support in implementation of national and regional federation’s projects"
+		},
+		{
+			"employer": "Kurylys Komek Company LLP",
+			"title": "Engineer-developer",
+			"location": "Kazakhstan, Almaty",
+			"dates": "2009 - 2010",
+			"description": "Database administration, helpdesk"
+		},
+		{
+			"employer": "Inspector of Kazakh Research and Project Institute 'Dortrans'",
+			"title": "Inspector",
+			"location": "Kazakhstan, Almaty",
+			"dates": "2007 - 2009",
+			"description": "Organization, maintenance, and development of databases (quality control of materials), preparing reports"
+		}
 	]
 };
 work.display = function(){
@@ -146,11 +203,17 @@ work.display = function(){
 var projects = {
 	"projects": [
 		{
+			"title": "Dongle-based protection software development (C / Delphi)",
+			"dates": "2014",
+			"description": "Complex usage of software- and hardware-based methods of generating licences and protecting the company's software product",
+			"images": ["images/dongle.png"]
+		},		
+		{
 			"title": "Queue management system userguides pack",
-			"dates": "2012 - ...",
+			"dates": "2012 - version maintenance",
 			"description": "Server-side and client-side components userguides, 14 userguides in total. Examples below:",
 			"images": ["images/doc.png", "images/doc1.png", "images/doc2.png", "images/doc3.png"]
-		}		
+		}
 	]
 };
 projects.display = function(){
@@ -171,12 +234,9 @@ projects.display = function(){
 	}
 }
 
+menuList.display();
 bio.display();
 projects.display();
 education.display();
 work.display();
 $("#mapDiv").append(googleMap);
-
-
-
-

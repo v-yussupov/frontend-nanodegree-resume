@@ -3,6 +3,7 @@
 width: 150px; 
 min-height: 25px;
 }
+
 * {
   padding:0;
   margin:0;
@@ -18,17 +19,26 @@ min-height: 25px;
   padding-right: 5%;
 }
 
-h1 {
+h1#name {
   font-size: 40px;
-  color: #F5A623;
+  color: #372626;
   line-height: 48px;
   display: inline;
+  text-align: right;
 }
 
 h2 {
   font-weight: bold;
   font-size: 24px;
   color: #999999;
+  line-height: 29px;
+  padding: 10px;
+}
+
+h2#footer-text {
+  font-weight: bold;
+  font-size: 24px;
+  color: #2c323e;
   line-height: 29px;
   padding: 10px;
 }
@@ -87,12 +97,12 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #2c323e;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #372626;
   display: none;
 }
 
@@ -104,13 +114,19 @@ a {
   background-color: #F5AE23;
 }
 
-.orange-text {
-  color: #F5AE23;
+.contacts-text {
+  color: #000;
+  font-weight:bold;
 }
 
 .white-text {
   font-weight: bold;
   color: #FFFFFF;
+}
+
+.skills-text {
+  font-weight: bold;
+  color: #000;
 }
 
 .gray {
@@ -119,13 +135,57 @@ a {
   clear:both;
 }
 
-.dark-gray {
-  background-color: #4A4A4A;
+.footer-color {
+  background: url(../images/trianglify-background.svg) 0 88%;
 }
 
-/* TODO: Replace with image later */
+#main {
+	margin: 0 auto;
+	width:100%;
+}
+
+#menu {
+  width: 100%;
+  height: 60px; 
+  position: fixed; 
+  top: 0;
+  background: url(../images/trianglify-background.svg) 0 0;
+  z-index:50;
+  overflow: hidden;
+}
+
+#menu ul{
+  padding: 10px;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.menu li a {
+  padding: 5px 0;
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.menu li a:hover {
+  color: #34495E;
+}
+
+.menu a.active {
+  border-bottom: 2px solid #ecf0f1;
+}
+
 #header {
-  background-color: #484848;
+  margin-top: 60px;
+  background: url(../images/trianglify-background.svg) 0 14%;
 }
 
 .flex-box {
@@ -175,6 +235,20 @@ span {
   padding: 5px;
 }
 
+#map {
+  display: block;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  z-index:30;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
 #letsConnect {
   text-align: center;
 }
@@ -201,19 +275,6 @@ span {
   .welcome-message {
     display: none;
   }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
 }
 
 @media only screen and (min-width: 750px) {
