@@ -44,7 +44,7 @@ var bio = {
 		"location": "Almaty, Kazakhstan"		
 	},
 	"welcomeMsg":"May the force be with you!",
-	"skills":["HTML, CSS", "JavaScript, C", "MySQL, MS SQL Server", "Technical writing", "Graphic design / layout, ADOBE products knowledge (PS, AI, InDesign, Framemaker)", "UNIX-like OSes just for fun"],
+	"skills":["HTML, CSS", "JavaScript, C", "MySQL, MS SQL Server", "Technical writing", "Graphic design / layout, ADOBE products (PS, AI, InDesign, Framemaker)", "UNIX-like OSes just for fun"],
 	"pictureUrl":"images/picture.jpg"
 };
 bio.display = function(){
@@ -212,7 +212,19 @@ var projects = {
 			"title": "Queue management system userguides pack",
 			"dates": "2012 - version maintenance",
 			"description": "Server-side and client-side components userguides, 14 userguides in total. Examples below:",
-			"images": ["images/doc.png", "images/doc1.png", "images/doc2.png", "images/doc3.png"]
+			"images": ["images/userguides/doc.png", "images/userguides/doc1.png", "images/userguides/doc2.png", "images/userguides/doc3.png"]
+		},
+		{
+			"title": "UNESCO children art-book design & layout",
+			"dates": "2011",
+			"description": "UNESCO 'Children are painting the world, Central Asia' series book consists of works of young painters from Kazakhstan, Kyrgyzstan, Uzbekistan and Tajikistan",
+			"images": ["images/book/book-1.png", "images/book/book-2.png", "images/book/book-3.png", "images/book/book-4.png"]
+		},
+		{
+			"title": "UNESCO children art-book series interactive CD",
+			"dates": "2011",
+			"description": "UNESCO 'Children are painting the world, Central Asia' Adobe Flash application with gallery of works and some extras",
+			"images": ["images/cd/cd-1.png", "images/cd/cd-2.png", "images/cd/cd-3.png"]
 		}
 	]
 };
