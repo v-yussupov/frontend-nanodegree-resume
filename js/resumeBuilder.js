@@ -43,7 +43,7 @@ var bio = {
 		"github": "v-yussupov", 
 		"location": "Almaty, Kazakhstan"		
 	},
-	"welcomeMsg":"May the force be with you!",
+	"welcomeMsg":"A journey of a thousand miles begins with a single step",
 	"skills":["HTML, CSS", "JavaScript, C", "MySQL, MS SQL Server", "Technical writing", "Graphic design / layout, ADOBE products (PS, AI, InDesign, Framemaker)", "UNIX-like OSes just for fun"],
 	"pictureUrl":"images/picture.jpg"
 };
@@ -204,13 +204,13 @@ var projects = {
 	"projects": [
 		{
 			"title": "Dongle-based protection software development (C / Delphi)",
-			"dates": "2014",
+			"dates": "2014 - present",
 			"description": "Complex usage of software- and hardware-based methods of generating licences and protecting the company's software product",
 			"images": ["images/dongle.png"]
 		},		
 		{
 			"title": "Queue management system userguides pack",
-			"dates": "2012 - version maintenance",
+			"dates": "2012 - present (version maintenance)",
 			"description": "Server-side and client-side components userguides, 14 userguides in total. Examples below:",
 			"images": ["images/userguides/doc.png", "images/userguides/doc1.png", "images/userguides/doc2.png", "images/userguides/doc3.png"]
 		},
@@ -238,9 +238,12 @@ projects.display = function(){
 		var formattedDescription = HTMLprojectDescription.replace("%data%",projects.projects[projNum].description);
 		$(".project-entry:last").append(formattedDescription);
 		if (projects.projects[projNum].images.length > 0){
+			$(".project-entry:last").append(HTMLprojectImageBlock);
 			for (imgNum in projects.projects[projNum].images){
 				var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[projNum].images[imgNum]);
-				$(".project-entry:last").append(formattedImage);
+				formattedImage = formattedImage.replace("%link%",projects.projects[projNum].images[imgNum]);
+				formattedImage = formattedImage.replace("%number%",projNum);
+				$(".project-entry:last .project-gallery").append(formattedImage);
 			}
 		}
 	}
@@ -252,3 +255,13 @@ projects.display();
 education.display();
 work.display();
 $("#mapDiv").append(googleMap);
+
+//initialize gallery for each project
+for (projNum in projects.projects){
+	if (projects.projects[projNum].images.length > 0){
+		for (imgNum in projects.projects[projNum].images){
+			var selStr = ".gallery-" + projNum;
+			$(selStr).ionZoom();
+		}
+	}
+}
