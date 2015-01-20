@@ -16,8 +16,8 @@ $(window).on('scroll', function () {
   var cur_pos = $(this).scrollTop();
  
   sections.each(function() {
-    //top boundary of section -1px, in order to avoid intersections
-	var top = $(this).offset().top - nav_height - 1,
+    //top boundary of section -2px, in order to avoid intersections
+	var top = $(this).offset().top - nav_height - 2,
     //bottom boundary of section
 	bottom = top + $(this).outerHeight();
 	//if within section - manipulate with active class of <a>
