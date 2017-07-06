@@ -1,9 +1,6 @@
 Udacity Front-end developer nano-degree project2
 -----------------
 
-Github pages:
-http://v-yussupov.github.io/frontend-nanodegree-resume/
-
 List of resources:
 
 1. http://qrohlf.com/trianglify/ - a javascript library for generating colorful triangle meshes that can be used as SVG images and CSS backgrounds.
